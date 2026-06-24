@@ -11,8 +11,9 @@
   <body>
     <!-- Loading Screen -->
     <div id="loading">
+      <div id="particles-loading"></div>
       <div class="loader-content">
-        <div class="ice-crystal"></div>
+        <img src="/logo.png" alt="Logo Givre Éternel" class="loading-logo" />
         <h2>Génération du Froid...</h2>
         <div class="progress-bar"><div class="progress"></div></div>
       </div>
@@ -27,7 +28,10 @@
     <!-- Main Content -->
     <div id="app" style="opacity: 0; pointer-events: none;">
       <div class="spell-card glass">
-        <h1 class="title">Cryostase Funéraire</h1>
+        <div class="header-section">
+          <img src="/spell-logo.png" alt="Cryostase Funéraire Logo" class="spell-logo" />
+          <h1 class="title">Cryostase Funéraire</h1>
+        </div>
         
         <div class="spell-description">
           <p>L'utilisateur condense son énergie occulte glaciale pour s'enfermer dans un immense pic de givre cristallin. Tant que cette prison de glace demeure intacte, son corps est préservé du monde extérieur et ses blessures se régénèrent progressivement en consommant son énergie occulte.</p>
@@ -64,7 +68,7 @@
             <ul>
               <li>L'utilisateur est totalement immobile.</li>
               <li>Impossible d'attaquer ou d'utiliser d'autres techniques.</li>
-              <li>Le pic de givre possède une limite de 600 Tissus et peut être détruit.</li>
+              <li>Le pic de givre possède une limite de 800 Tissus et peut être détruit.</li>
               <li class="danger">Si détruit avant désactivation volontaire : choc occulte et étourdissement pendant 2 secondes.</li>
               <li>Technique principalement défensive.</li>
             </ul>

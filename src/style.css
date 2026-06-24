@@ -126,18 +126,12 @@ h2 {
   bottom: 12%;
 
   padding: 3% 3%;
-  overflow-y: auto;
+  overflow: visible;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  /* Hide scrollbar but keep scrolling */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 }
-.spell-card::-webkit-scrollbar {
-  display: none;
 }
 
 .spell-description {
@@ -283,6 +277,43 @@ li.danger {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
+}
+
+/* Scroll Arrow */
+.scroll-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 0 40px;
+  cursor: pointer;
+  background-color: var(--bg-color);
+}
+
+.scroll-arrow span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 3px solid var(--glow-cyan);
+  border-right: 3px solid var(--glow-cyan);
+  transform: rotate(45deg);
+  animation: scrollBounce 2s infinite;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px var(--glow-cyan));
+}
+
+.scroll-arrow span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.scroll-arrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes scrollBounce {
+  0% { opacity: 0; transform: rotate(45deg) translate(-8px, -8px); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(45deg) translate(8px, 8px); }
 }
 
 @media (max-width: 768px) {

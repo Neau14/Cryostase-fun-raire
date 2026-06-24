@@ -34,8 +34,7 @@ body {
   top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.6;
-  mix-blend-mode: overlay;
+  opacity: 1;
   z-index: 1;
 }
 #particles-js {
@@ -121,15 +120,15 @@ h2 {
 }
 
 .spell-card.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 800px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 5vh 5vw; /* Ajuste ces valeurs pour que le texte rentre pile dans le cadre */
+  max-width: 900px;
   width: 100%;
-  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 242, 254, 0.1);
+  box-shadow: none;
   transform: translateY(20px);
   transition: transform 1s ease-out, opacity 1s ease-out;
 }

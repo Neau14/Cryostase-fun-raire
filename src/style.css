@@ -3,7 +3,6 @@
   --ice-blue: #0A192F;
   --glow-cyan: #00F2FE;
   --pure-white: #FFFFFF;
-  --glass-bg: rgba(5, 11, 20, 0.75);
   --glass-border: rgba(0, 242, 254, 0.4);
 }
 
@@ -23,26 +22,12 @@ body {
   width: 100vw;
 }
 
-/* Background - scrolls with page */
-#background {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 100vh; /* Only covers the hero section */
-  z-index: 0;
-}
-.bg-image {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 1;
-  z-index: 1;
-}
+/* Global particles overlay */
 #particles-js {
-  position: absolute;
+  position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 2;
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* Loading Screen */
@@ -109,7 +94,7 @@ h2 {
   transition: width 2.5s ease-out;
 }
 
-/* Main Content Layout */
+/* Main Content */
 #app {
   position: relative;
   z-index: 10;
@@ -118,44 +103,48 @@ h2 {
   transition: opacity 1.5s ease-in-out;
 }
 
-/* Hero section - the background frame area */
+/* Hero Section — image is the sizing reference */
 .hero-section {
-  height: 100vh;
-  width: 100%;
   position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: stretch;
+  width: 100%;
+  background-color: var(--bg-color);
 }
 
-/* The spell card sits inside the right-side frame */
-.spell-card.glass {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+.hero-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-  /* Position precisely inside the right frame of the background */
-  width: 50%;
-  margin-right: 2%;
-  padding: 32vh 3.5vw 4vh 3.5vw; /* top clears the baked-in title + kanji */
+/* Spell card overlays the image, positioned with % relative to the image */
+.spell-card {
+  position: absolute;
+  /* Matches the decorative frame in the background image */
+  top: 34%;
+  left: 54%;
+  right: 6%;
+  bottom: 12%;
+
+  padding: 3% 3%;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: hidden;
 
-  transform: translateY(20px);
-  transition: transform 1s ease-out, opacity 1s ease-out;
+  /* Hide scrollbar but keep scrolling */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.spell-card::-webkit-scrollbar {
+  display: none;
 }
 
 .spell-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.7rem, 1.2vw, 1.1rem);
   line-height: 1.6;
   text-align: justify;
-  margin-bottom: 20px;
+  margin-bottom: 3%;
   color: #ffffff;
   font-weight: 400;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
@@ -164,38 +153,38 @@ h2 {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: clamp(5px, 1vw, 15px);
+  margin-bottom: 3%;
   text-align: center;
 }
 
 .stat-item {
   background: rgba(0, 242, 254, 0.08);
   border: 1px solid rgba(0, 242, 254, 0.3);
-  border-radius: 10px;
-  padding: 12px 8px;
+  border-radius: 8px;
+  padding: clamp(6px, 1vw, 12px) clamp(4px, 0.5vw, 8px);
   display: flex;
   flex-direction: column;
 }
 
 .stat-item .label {
-  font-size: 0.85rem;
+  font-size: clamp(0.55rem, 0.8vw, 0.85rem);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #88c0d0;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
 
 .stat-item .value {
-  font-size: 1.3rem;
+  font-size: clamp(0.8rem, 1.2vw, 1.3rem);
   font-weight: 600;
   text-shadow: 0 0 15px var(--glow-cyan), 0 2px 4px rgba(0,0,0,0.8);
 }
 
 .details-section {
   display: flex;
-  gap: 20px;
+  gap: clamp(8px, 1.5vw, 20px);
 }
 
 .qualities, .drawbacks {
@@ -204,10 +193,10 @@ h2 {
 
 h3 {
   font-family: 'Cinzel', serif;
-  font-size: 1.2rem;
+  font-size: clamp(0.8rem, 1.1vw, 1.2rem);
   border-bottom: 1px solid var(--glass-border);
-  padding-bottom: 8px;
-  margin-bottom: 12px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
   color: var(--glow-cyan);
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
@@ -223,9 +212,9 @@ ul {
 
 li {
   position: relative;
-  padding-left: 18px;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  font-size: clamp(0.65rem, 0.95vw, 0.95rem);
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   line-height: 1.4;
@@ -249,7 +238,7 @@ li.danger {
   text-shadow: 0 0 10px rgba(255, 107, 107, 0.5), 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* RP Section - below the background */
+/* RP Section — below the hero image */
 .rp-section {
   background-color: var(--bg-color);
   padding: 80px 20px;
@@ -296,18 +285,13 @@ li.danger {
   100% { transform: translateY(0px); }
 }
 
-@media (max-width: 1024px) {
-  .hero-section {
-    justify-content: center;
-  }
-  .spell-card.glass {
-    width: 90%;
-    margin-right: 0;
-    padding-top: 30vh;
-  }
-}
-
 @media (max-width: 768px) {
+  .spell-card {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    padding: 20px;
+    background: rgba(5, 11, 20, 0.85);
+  }
   .details-section {
     flex-direction: column;
   }

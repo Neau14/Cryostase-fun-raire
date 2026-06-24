@@ -19,16 +19,15 @@
       </div>
     </div>
 
-    <!-- Background Layer -->
-    <div id="background">
-      <div id="particles-js"></div>
-      <div class="bg-image" style="background-image: url('/bg-ice.png');"></div>
-    </div>
+    <!-- Particles overlay (global) -->
+    <div id="particles-js"></div>
 
     <!-- Main Content -->
     <div id="app" style="opacity: 0; pointer-events: none;">
+      <!-- Hero: image + text overlay -->
       <div class="hero-section">
-        <div class="spell-card glass">
+        <img src="/bg-ice.png" alt="Background" class="hero-bg" />
+        <div class="spell-card">
           <div class="spell-description">
             <p>L'utilisateur s'enferme dans un pic de givre cristallin. Tant qu'il est intact, son corps est protégé et se régénère continuellement en consommant son énergie occulte.</p>
           </div>
@@ -73,6 +72,7 @@
         </div>
       </div>
 
+      <!-- RP Section below -->
       <div class="rp-section">
         <div class="rp-content">
           <h2>Idée pour le développement</h2>

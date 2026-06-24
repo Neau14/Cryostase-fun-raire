@@ -132,7 +132,6 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
 }
-}
 
 .spell-description {
   font-size: clamp(0.85rem, 1.4vw, 1.25rem);

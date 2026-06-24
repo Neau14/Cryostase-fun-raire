@@ -138,9 +138,9 @@ h2 {
   box-shadow: none;
 
   /* Position precisely inside the right frame of the background */
-  width: 47%;
-  margin-right: 3.5%;
-  padding: 26vh 2.5vw 4vh 2vw; /* top pushes below the baked-in title */
+  width: 50%;
+  margin-right: 2%;
+  padding: 32vh 3.5vw 4vh 3.5vw; /* top clears the baked-in title + kanji */
 
   display: flex;
   flex-direction: column;

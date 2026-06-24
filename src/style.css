@@ -114,9 +114,9 @@ h2 {
   z-index: 10;
   min-height: 100vh;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 60px 8vw;
+  justify-content: center;
+  align-items: flex-start; /* Align to top to allow margin positioning */
+  padding: 22vh 20px 20px 20px; /* Push content below the baked-in title */
   transition: opacity 1.5s ease-in-out;
 }
 
@@ -126,8 +126,8 @@ h2 {
   -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 5vh 5vw; /* Ajuste ces valeurs pour que le texte rentre pile dans le cadre */
-  max-width: 900px;
+  padding: 10px 40px; /* Tight horizontal padding to stay within the frame lines */
+  max-width: 650px; /* Narrower to fit the drawn borders perfectly */
   width: 100%;
   box-shadow: none;
   transform: translateY(20px);
